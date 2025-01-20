@@ -98,14 +98,22 @@ def start_screen():
         clock.tick(FPS)
 
 
+def mousepos(pos):
+    x, y = pos
+    print((x // 50) + 1, (y // 50) + 1)
+    return (x // 50) + 1, (y // 50) + 1
+
+
 start_screen()
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             terminate()
+
         if event.type == pygame.MOUSEBUTTONDOWN:
-            pass
+            pos = event.pos
+            mousepos(pos)
 
     screen.fill('white')
     tiles_group.draw(screen)
