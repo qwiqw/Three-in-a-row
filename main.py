@@ -3,17 +3,18 @@ from _load_level import load_level
 from _generate_level import generate_level, tiles_group, render
 from _start_screen import screen, terminate, start_screen
 from _intermediate_screen import intermediate_screen
-from _click import get_cell, movement
-
+from _click import get_cell, movement, count_mouves
 
 pygame.init()
 
 level_map = load_level('map.txt')
-print(level_map)
 generate_level(level_map)
+
+font = pygame.font.Font(None, 90)
 
 pos_old = (0, 0)
 pos_new = (0, 0)
+
 
 start_screen()
 intermediate_screen()
@@ -30,11 +31,12 @@ while running:
         if event.type == pygame.MOUSEBUTTONUP:
             pos = event.pos
             pos_new = get_cell(pos)
-            movement(pos_old, pos_new, level_map)
+            count_mouves = movement(pos_old, pos_new, level_map)
             generate_level(level_map)
 
     screen.fill('white')
     render(screen)
     tiles_group.draw(screen)
+    screen.blit(font.render(str(count_mouves), True, 'blue'), (5, 0))
     pygame.display.flip()
 pygame.quit()
