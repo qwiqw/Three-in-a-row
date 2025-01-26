@@ -14,4 +14,19 @@ def get_cell(mouse_pos):
             y < top or y > 9 * cell_size + top):
         return None
     else:
-        return ((x - left) // cell_size + 1, (y - top) // cell_size + 1)
+        return ((x - left) // cell_size, (y - top) // cell_size)
+
+
+def movement(old, new, level):
+    if old[0] == new[0] + 1 and old[1] == new[1]:
+        level[old[1]] = (level[old[1]][:(new[0])] + level[old[1]][old[0]]
+                         + level[new[1]][new[0]] + level[old[1]][(new[0] + 2):])
+
+    if old[0] == new[0] - 1 and old[1] == new[1]:
+        level[old[1]] = (level[old[1]][:(old[0])] + level[new[1]][new[0]] + level[old[1]][old[0]]
+                         + level[old[1]][(old[0] + 2):])
+
+    if old[1] == new[1] - 1 and old[0] == new[0] or old[1] == new[1] + 1 and old[0] == new[0]:
+        oldfish = level[old[1]][old[0]]
+        level[old[1]] = level[old[1]][:(old[0])] + level[new[1]][new[0]] + level[old[1]][(old[0] + 1):]
+        level[new[1]] = level[new[1]][:(new[0])] + oldfish + level[new[1]][(new[0] + 1):]
