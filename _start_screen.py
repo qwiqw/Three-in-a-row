@@ -6,6 +6,7 @@ FPS = 50
 clock = pygame.time.Clock()
 WIDTH, HEIGHT = size = 550, 550
 screen = pygame.display.set_mode(size)
+pygame.display.set_caption('Караси')
 
 
 def terminate():
