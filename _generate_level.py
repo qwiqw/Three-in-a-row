@@ -4,9 +4,9 @@ from _image import load_image
 all_sprites = pygame.sprite.Group()
 tiles_group = pygame.sprite.Group()
 tile_width = tile_height = 50
-left = 40
+left = 90
 cell_size = 51
-top = 50
+top = 134
 
 tile_images = {
     'herring': pygame.transform.scale(load_image('1.jpg'), (48, 48)),

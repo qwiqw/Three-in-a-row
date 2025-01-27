@@ -1,7 +1,8 @@
 import pygame
+from _image import load_image
 from _load_level import load_level
 from _generate_level import generate_level, tiles_group, render
-from _start_screen import screen, terminate, start_screen
+from _start_screen import screen, terminate, start_screen, WIDTH, HEIGHT
 from _intermediate_screen import intermediate_screen
 from _click import get_cell, movement, count_mouves
 
@@ -34,9 +35,10 @@ while running:
             count_mouves = movement(pos_old, pos_new, level_map)
             generate_level(level_map)
 
-    screen.fill('white')
+    fon = pygame.transform.scale(load_image('bubl1.png'), (WIDTH, HEIGHT))
+    screen.blit(fon, (0, 0))
     render(screen)
     tiles_group.draw(screen)
-    screen.blit(font.render(str(count_mouves), True, 'blue'), (5, 0))
+    screen.blit(font.render(str(count_mouves), True, 'blue'), (10, 5))
     pygame.display.flip()
 pygame.quit()

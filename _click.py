@@ -1,11 +1,4 @@
-import pygame
-
-all_sprites = pygame.sprite.Group()
-tiles_group = pygame.sprite.Group()
-tile_width = tile_height = 50
-left = 40
-cell_size = 51
-top = 50
+from _generate_level import left, top, cell_size
 count_mouves = 0
 
 
