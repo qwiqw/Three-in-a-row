@@ -19,13 +19,13 @@ def start_screen():
     screen.blit(fon, (0, 0))
 
     font_title = pygame.font.Font(None, 70)
-    text_title = font_title.render('Russian fishing', True, 'white')
+    text_title = font_title.render('Russian fishing', True, (244, 193, 193))
 
     font_btn = pygame.font.Font(None, 50)
-    text_btn = font_btn.render('Start', True, 'white')
+    text_btn = font_btn.render('Start', True, (244, 193, 193))
 
-    button_rect = pygame.Rect(370, 280, 140, 70)
-    pygame.draw.rect(screen, 'white', button_rect, 2)
+    button_rect = pygame.Rect(250, 280, 140, 70)
+    pygame.draw.rect(screen, (244, 193, 193), button_rect, 3)
 
     while True:
         for event in pygame.event.get():
@@ -34,7 +34,7 @@ def start_screen():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if button_rect.collidepoint(event.pos):
                     return
-        screen.blit(text_title, (180, 100))
-        screen.blit(text_btn, (400, 300))
+        screen.blit(text_title, (130, 150))
+        screen.blit(text_btn, (280, 300))
         pygame.display.flip()
         clock.tick(FPS)

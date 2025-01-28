@@ -39,6 +39,6 @@ while running:
     screen.blit(fon, (0, 0))
     render(screen)
     tiles_group.draw(screen)
-    screen.blit(font.render(str(count_mouves), True, 'blue'), (10, 5))
+    screen.blit(font.render(str(count_mouves), True, (255, 193, 193)), (40, 40))
     pygame.display.flip()
 pygame.quit()
