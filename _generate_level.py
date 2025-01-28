@@ -9,10 +9,10 @@ cell_size = 51
 top = 134
 
 tile_images = {
-    'herring': pygame.transform.scale(load_image('1.jpg'), (48, 48)),
-    'carp': pygame.transform.scale(load_image('2.jpg'), (48, 48)),
-    'redfish': pygame.transform.scale(load_image('3.jpg'), (48, 48)),
-    'som': pygame.transform.scale(load_image('4.jpg'), (48, 48)),
+    'hanos': pygame.transform.scale(load_image('fishes/hanos.jpg'), (48, 48)),
+    'goldcrucian': pygame.transform.scale(load_image('fishes/goldcrucian.jpg'), (48, 48)),
+    'redsnap': pygame.transform.scale(load_image('fishes/redsnap.jpg'), (48, 48)),
+    'catfish': pygame.transform.scale(load_image('fishes/catfish.jpg'), (48, 48)),
 }
 
 
@@ -35,11 +35,11 @@ def generate_level(level):
     for y in range(len(level)):
         for x in range(len(level[y])):
             if level[y][x] == '.':
-                Tile('herring', x, y)
+                Tile('hanos', x, y)
             elif level[y][x] == '#':
-                Tile('carp', x, y)
+                Tile('goldcrucian', x, y)
             elif level[y][x] == '@':
-                Tile('redfish', x, y)
+                Tile('redsnap', x, y)
             elif level[y][x] == '*':
-                Tile('som', x, y)
+                Tile('catfish', x, y)
     return

@@ -7,7 +7,7 @@ def intermediate_screen():
     images = []
     count_passes = 0
     for i in range(1, 27 + 1):
-        images.append(pygame.transform.scale(load_image(f'bubl{i}.png'), (WIDTH, HEIGHT)))
+        images.append(pygame.transform.scale(load_image(f'bubbles/bubl{i}.png'), (WIDTH, HEIGHT)))
 
     animation_length = len(images)
     animation_speed = 20

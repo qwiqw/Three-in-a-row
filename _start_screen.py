@@ -15,7 +15,7 @@ def terminate():
 
 
 def start_screen():
-    fon = pygame.transform.scale(load_image('bubl1.png'), (WIDTH, HEIGHT))
+    fon = pygame.transform.scale(load_image('bubbles/bubl1.png'), (WIDTH, HEIGHT))
     screen.blit(fon, (0, 0))
 
     font_title = pygame.font.Font(None, 70)
