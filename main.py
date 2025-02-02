@@ -8,6 +8,7 @@ from _click import movement, count_mouves
 from _catalog_levels import catalog_screen
 from _three_in_a_row import three_in_a_row
 from _search_coords import get_cell
+from final_screen import winner
 
 pygame.init()
 
@@ -45,5 +46,7 @@ while running:
     render(screen)
     tiles_group.draw(screen)
     screen.blit(font.render(str(count_mouves), True, (255, 193, 193)), (40, 40))
+    screen.blit(font.render(str(count_mouves * 52), True, (255, 193, 193)), (500, 40))
+    winner(count_mouves)
     pygame.display.flip()
 pygame.quit()
