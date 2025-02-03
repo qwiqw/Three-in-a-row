@@ -1,3 +1,5 @@
+from _check import check
+
 count_mouves = 0
 
 
@@ -25,4 +27,5 @@ def movement(old, new, level):
         level[old[1]] = level[old[1]][:(old[0])] + level[new[1]][new[0]] + level[old[1]][(old[0] + 1):]
         level[new[1]] = level[new[1]][:(new[0])] + oldfish + level[new[1]][(new[0] + 1):]
         count_mouves += 1
+    check(level)
     return count_mouves
