@@ -1,6 +1,9 @@
 import pygame
 import sys
 from _image import load_image
+from _settings import screen_settings
+
+pygame.init()
 
 FPS = 50
 clock = pygame.time.Clock()
@@ -25,7 +28,9 @@ def start_screen():
     text_btn = font_btn.render('Start', True, (244, 193, 193))
 
     button_rect = pygame.Rect(250, 280, 140, 70)
-    pygame.draw.rect(screen, (244, 193, 193), button_rect, 3)
+
+    button_settings_rect = pygame.Rect(550, 30, 70, 70)
+    button_settings_image = pygame.transform.scale(load_image('other/settings.jpg'), (70, 70))
 
     while True:
         for event in pygame.event.get():
@@ -34,7 +39,12 @@ def start_screen():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if button_rect.collidepoint(event.pos):
                     return
+                elif button_settings_rect.collidepoint(event.pos):
+                    screen_settings()
+        pygame.draw.rect(screen, (244, 193, 193), button_rect, 3)
+        screen.blit(button_settings_image, (550, 30))
         screen.blit(text_title, (130, 150))
         screen.blit(text_btn, (280, 300))
+        pygame.draw.rect(screen, (244, 193, 193), button_settings_rect, 3)
         pygame.display.flip()
         clock.tick(FPS)

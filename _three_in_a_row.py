@@ -85,15 +85,20 @@ def three_in_a_row(old, new, level):
             level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new1 + level[new[1] - 2][new[0] + 1:]
             level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new2 + level[new[1] - 1][new[0] + 1:]
             level[new[1]] = level[new[1]][:new[0]] + symbol_new3 + level[new[1]][new[0] + 1:]
+
+    #ошибка была вот здесь в new[1] == 5 в sym_level
+
     if new[1] == 5:
         if (level[new[1]][new[0]] == level[new[1] - 1][new[0]] and
                 level[new[1]][new[0]] == level[new[1] - 2][new[0]]):
             symbol_new1 = random.choice(['.', '@', '#', '*'])
             symbol_new2 = random.choice(['.', '@', '#', '*'])
             symbol_new3 = random.choice(['.', '@', '#', '*'])
-            symbol_level1 = level[new[1] - 1][new[0]]
-            symbol_level2 = level[new[1] - 2][new[0]]
+            # вот это уже исправлено!!!
+            symbol_level1 = level[new[1] - 5][new[0]]
+            symbol_level2 = level[new[1] - 4][new[0]]
             symbol_level3 = level[new[1] - 3][new[0]]
+            #
             level[new[1]] = level[new[1]][:new[0]] + symbol_level3 + level[new[1]][new[0] + 1:]
             level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level2 + level[new[1] - 1][new[0] + 1:]
             level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level1 + level[new[1] - 2][new[0] + 1:]
@@ -167,9 +172,235 @@ def three_in_a_row(old, new, level):
             level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level5 + level[new[1] + 1][new[0] + 1:]
             level[new[1] + 2] = level[new[1] + 2][:new[0]] + symbol_level6 + level[new[1] + 2][new[0] + 1:]
 
-        '////////////////////////////////////////////////////////////////////////////////////////////////////'
+    #NEW
 
+    if new[1] == 1:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new1 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_new2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_new3 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 2:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new1 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new2 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_new3 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 3:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            symbol_level2 = level[new[1] - 3][new[0]]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new1 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new2 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 4:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            symbol_level2 = level[new[1] - 3][new[0]]
+            symbol_level3 = level[new[1] - 4][new[0]]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new1 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new2 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new3 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 5:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            symbol_level2 = level[new[1] - 3][new[0]]
+            symbol_level3 = level[new[1] - 4][new[0]]
+            symbol_level4 = level[new[1] - 5][new[0]]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new1 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new2 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new3 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level4 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 6:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            symbol_level2 = level[new[1] - 3][new[0]]
+            symbol_level3 = level[new[1] - 4][new[0]]
+            symbol_level4 = level[new[1] - 5][new[0]]
+            symbol_level5 = level[new[1] - 6][new[0]]
+            level[new[1] - 6] = level[new[1] - 6][:new[0]] + symbol_new1 + level[new[1] - 6][new[0] + 1:]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new2 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new3 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_level5 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level4 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 7:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 1][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 2][new[0]]
+            symbol_level2 = level[new[1] - 3][new[0]]
+            symbol_level3 = level[new[1] - 4][new[0]]
+            symbol_level4 = level[new[1] - 5][new[0]]
+            symbol_level5 = level[new[1] - 6][new[0]]
+            symbol_level6 = level[new[1] - 7][new[0]]
+            level[new[1] - 7] = level[new[1] - 7][:new[0]] + symbol_new1 + level[new[1] - 7][new[0] + 1:]
+            level[new[1] - 6] = level[new[1] - 6][:new[0]] + symbol_new2 + level[new[1] - 6][new[0] + 1:]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new3 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_level6 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_level5 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level4 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level2 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level1 + level[new[1] + 1][new[0] + 1:]
+    if new[1] == 1:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] + 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 1][new[0]]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new1 + level[new[1] - 1][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_new2 + level[new[1] + 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_new3 + level[new[1]][new[0] + 1:]
+            level[new[1] + 2] = level[new[1] + 2][:new[0]] + symbol_level1 + level[new[1] + 2][new[0] + 1:]
+    if new[1] == 2:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] + 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 1][new[0]]
+            symbol_level2 = level[new[1] - 2][new[0]]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new1 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new2 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_new3 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level2 + level[new[1] + 1][new[0] + 1:]
+            level[new[1] + 2] = level[new[1] + 2][:new[0]] + symbol_level1 + level[new[1] + 2][new[0] + 1:]
+    if new[1] == 4:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] + 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 1][new[0]]
+            symbol_level2 = level[new[1] - 2][new[0]]
+            symbol_level3 = level[new[1] - 3][new[0]]
+            symbol_level4 = level[new[1] - 4][new[0]]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new1 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new2 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new3 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level4 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level3 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level2 + level[new[1] + 1][new[0] + 1:]
+            level[new[1] + 2] = level[new[1] + 2][:new[0]] + symbol_level1 + level[new[1] + 2][new[0] + 1:]
+    if new[1] == 5:
+        if (level[new[1]][new[0]] == level[new[1] + 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] + 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 1][new[0]]
+            symbol_level2 = level[new[1] - 2][new[0]]
+            symbol_level3 = level[new[1] - 3][new[0]]
+            symbol_level4 = level[new[1] - 4][new[0]]
+            symbol_level5 = level[new[1] - 5][new[0]]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new1 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new2 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new3 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level5 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level4 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level3 + level[new[1]][new[0] + 1:]
+            level[new[1] + 1] = level[new[1] + 1][:new[0]] + symbol_level2 + level[new[1] + 1][new[0] + 1:]
+            level[new[1] + 2] = level[new[1] + 2][:new[0]] + symbol_level1 + level[new[1] + 2][new[0] + 1:]
+    if new[1] == 3:
+        if (level[new[1]][new[0]] == level[new[1] - 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 3][new[0]]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new1 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new2 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_new3 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level1 + level[new[1]][new[0] + 1:]
+    if new[1] == 4:
+        if (level[new[1]][new[0]] == level[new[1] - 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 3][new[0]]
+            symbol_level2 = level[new[1] - 4][new[0]]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new1 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_new2 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_new3 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level2 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level1 + level[new[1]][new[0] + 1:]
+    if new[1] == 6:
+        if (level[new[1]][new[0]] == level[new[1] - 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 3][new[0]]
+            symbol_level2 = level[new[1] - 4][new[0]]
+            symbol_level3 = level[new[1] - 5][new[0]]
+            symbol_level4 = level[new[1] - 6][new[0]]
+            level[new[1] - 6] = level[new[1] - 6][:new[0]] + symbol_new1 + level[new[1] - 6][new[0] + 1:]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new2 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_new3 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_level4 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level3 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level2 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level1 + level[new[1]][new[0] + 1:]
+    if new[1] == 7:
+        if (level[new[1]][new[0]] == level[new[1] - 1][new[0]] and
+                level[new[1]][new[0]] == level[new[1] - 2][new[0]]):
+            symbol_new1 = random.choice(['.', '@', '#', '*'])
+            symbol_new2 = random.choice(['.', '@', '#', '*'])
+            symbol_new3 = random.choice(['.', '@', '#', '*'])
+            symbol_level1 = level[new[1] - 3][new[0]]
+            symbol_level2 = level[new[1] - 4][new[0]]
+            symbol_level3 = level[new[1] - 5][new[0]]
+            symbol_level4 = level[new[1] - 6][new[0]]
+            symbol_level5 = level[new[1] - 7][new[0]]
+            level[new[1] - 7] = level[new[1] - 7][:new[0]] + symbol_new1 + level[new[1] - 7][new[0] + 1:]
+            level[new[1] - 6] = level[new[1] - 6][:new[0]] + symbol_new2 + level[new[1] - 6][new[0] + 1:]
+            level[new[1] - 5] = level[new[1] - 5][:new[0]] + symbol_new3 + level[new[1] - 5][new[0] + 1:]
+            level[new[1] - 4] = level[new[1] - 4][:new[0]] + symbol_level5 + level[new[1] - 4][new[0] + 1:]
+            level[new[1] - 3] = level[new[1] - 3][:new[0]] + symbol_level4 + level[new[1] - 3][new[0] + 1:]
+            level[new[1] - 2] = level[new[1] - 2][:new[0]] + symbol_level3 + level[new[1] - 2][new[0] + 1:]
+            level[new[1] - 1] = level[new[1] - 1][:new[0]] + symbol_level2 + level[new[1] - 1][new[0] + 1:]
+            level[new[1]] = level[new[1]][:new[0]] + symbol_level1 + level[new[1]][new[0] + 1:]
 
+    '''////////////////////////////////////////////////////////////////////////////////////////////////////'''
 
     if old[0] == 6:
         if (level[old[1]][old[0]] == level[old[1]][old[0] + 1] and

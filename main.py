@@ -8,7 +8,8 @@ from _click import movement, count_mouves
 from _catalog_levels import catalog_screen
 from _three_in_a_row import three_in_a_row
 from _search_coords import get_cell
-from final_screen import winner
+from _final_screen import winner
+from _music import music_and_sound
 
 pygame.init()
 
@@ -16,6 +17,8 @@ font = pygame.font.Font(None, 90)
 
 pos_old = (0, 0)
 pos_new = (0, 0)
+
+music_and_sound()
 
 start_screen()
 intermediate_screen()
