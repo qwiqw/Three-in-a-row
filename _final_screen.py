@@ -5,7 +5,7 @@ from _start_screen import FPS, clock, WIDTH, HEIGHT, screen
 
 
 def winner(count_mouves):
-    if (count_mouves * 52) >= 150:
+    if (count_mouves * 52) >= 15000:
         final_screen()
 
 
